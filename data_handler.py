@@ -3,7 +3,7 @@ from datetime import datetime
 import folium
 from branca.element import Template, MacroElement
 
-# 取得最近時間內pm2.5濃度高於35的資料
+# 取得最近時間的pm2.5資料
 def get_latest_pm25_data(df_data):
     # 檢查空值
     if df_data.empty:
@@ -28,6 +28,10 @@ def get_latest_pm25_data(df_data):
     lastest_data = df_data.loc[df_data["time_diff"] == min_time_diff]
     
     return lastest_data
+
+# 擷取pm2.5濃度高於35的資料
+def extract_exceed_pm25_data(pm25_dataframe):
+    return pm25_dataframe[pm25_dataframe["pm25"] > 35]
 
 def show_pm25_map(pm25_dataframe, lng_lat_dataframe):
     # 合併＆整理資料
