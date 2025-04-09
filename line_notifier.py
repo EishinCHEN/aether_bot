@@ -41,7 +41,7 @@ def send_pm25_flex_message(exceed_pm25_dataframe):
                         "action":{
                             "type":"uri",
                             "label":"查看全台PM2.5觀測結果",
-                            "uri":"https://eishinchen.github.io/aether_bot/pm25_map.html"
+                            "uri":"https://eishinchen.github.io/aether_bot"
                         }
                     }
                 ]
