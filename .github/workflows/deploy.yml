@@ -35,7 +35,7 @@ jobs:
       - name: Prepare HTML for GitHub Pages
         run: |
           mkdir -p output
-          cp map.html output/index.html
+          cp pm25_map.html output/index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
