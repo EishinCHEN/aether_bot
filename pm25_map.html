@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c575f9a7ec4c660585bf88a918ab2883 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_c575f9a7ec4c660585bf88a918ab2883" ></div>
+        
+    
+<div style="
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+    padding: 16px 20px;
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.8;
+    z-index:9999;
+    color: #333;
+    width: 210px;
+">
+    <div style="font-weight: bold; margin-bottom: 8px;">PM2.5 空氣品質指標</div>
+    <div><span style="display:inline-block;width:14px;height:14px;background:#00e400;border-radius:3px;margin-right:8px;"></span>0-15 良好</div>
+    <div><span style="display:inline-block;width:14px;height:14px;background:#ffff00;border-radius:3px;margin-right:8px;"></span>16-35 普通</div>
+    <div><span style="display:inline-block;width:14px;height:14px;background:#ff7e00;border-radius:3px;margin-right:8px;"></span>36-54 敏感族群不健康</div>
+    <div><span style="display:inline-block;width:14px;height:14px;background:#ff0000;border-radius:3px;margin-right:8px;"></span>55-150 不健康</div>
+    <div><span style="display:inline-block;width:14px;height:14px;background:#8f3f97;border-radius:3px;margin-right:8px;"></span>151+ 非常不健康</div>
+    <div><span style="display:inline-block;width:14px;height:14px;background:#aaaaaa;border-radius:3px;margin-right:8px;"></span>無資料</div>
+</div>
+</body>
+<script>
+    
+    
+            var map_c575f9a7ec4c660585bf88a918ab2883 = L.map(
+                "map_c575f9a7ec4c660585bf88a918ab2883",
+                {
+                    center: [23.7, 121.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_9d03fee9a9e44c7ea9b10fbcd78507dc = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_9d03fee9a9e44c7ea9b10fbcd78507dc.addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+            var circle_marker_2a4f85ec6f92b7a789db381b02731d63 = L.circleMarker(
+                [23.9615945, 120.5631893],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_8ab4d662d2add29a333e999ecf806aa6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_51fc11ccb8899083e52236a6a6ea717f = $(`<div id="html_51fc11ccb8899083e52236a6a6ea717f" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>員林</strong><br>     PM2.5：19.0 μg/m³<br>     縣市：彰化縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_8ab4d662d2add29a333e999ecf806aa6.setContent(html_51fc11ccb8899083e52236a6a6ea717f);
+            
+        
+
+        circle_marker_2a4f85ec6f92b7a789db381b02731d63.bindPopup(popup_8ab4d662d2add29a333e999ecf806aa6)
+        ;
+
+        
+    
+    
+            var circle_marker_e241d342b4389342ab099741870d0e1d = L.circleMarker(
+                [23.85493056, 120.26964167],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_6898b159face9812a54db9b8f8e75422 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d892ff5ad0ddb8747839d77ef6c580a7 = $(`<div id="html_d892ff5ad0ddb8747839d77ef6c580a7" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>大城</strong><br>     PM2.5：18.0 μg/m³<br>     縣市：彰化縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_6898b159face9812a54db9b8f8e75422.setContent(html_d892ff5ad0ddb8747839d77ef6c580a7);
+            
+        
+
+        circle_marker_e241d342b4389342ab099741870d0e1d.bindPopup(popup_6898b159face9812a54db9b8f8e75422)
+        ;
+
+        
+    
+    
+            var circle_marker_0ef9c35ab6c5b886c9c88d4ab0d38380 = L.circleMarker(
+                [25.29681695, 121.53656894],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_c633766cde5041d49a8eb5daa1c517e3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ce6707a8025c9536aee628f892b2e7e3 = $(`<div id="html_ce6707a8025c9536aee628f892b2e7e3" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>富貴角</strong><br>     PM2.5：25.0 μg/m³<br>     縣市：新北市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_c633766cde5041d49a8eb5daa1c517e3.setContent(html_ce6707a8025c9536aee628f892b2e7e3);
+            
+        
+
+        circle_marker_0ef9c35ab6c5b886c9c88d4ab0d38380.bindPopup(popup_c633766cde5041d49a8eb5daa1c517e3)
+        ;
+
+        
+    
+    
+            var circle_marker_51443ad8d83211d9bc8ed70fd107b153 = L.circleMarker(
+                [23.753506, 120.251825],
+                {"bubblingMouseEvents": true, "color": "#00e400", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00e400", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_036a29a6368ecd02b70f256952f4df09 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7dea10ef5e348f99741d780efb323102 = $(`<div id="html_7dea10ef5e348f99741d780efb323102" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>麥寮</strong><br>     PM2.5：15.0 μg/m³<br>     縣市：雲林縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_036a29a6368ecd02b70f256952f4df09.setContent(html_7dea10ef5e348f99741d780efb323102);
+            
+        
+
+        circle_marker_51443ad8d83211d9bc8ed70fd107b153.bindPopup(popup_036a29a6368ecd02b70f256952f4df09)
+        ;
+
+        
+    
+    
+            var circle_marker_000bb68cb9b470e7c2c791fe6d2eecfa = L.circleMarker(
+                [23.045083, 121.161933],
+                {"bubblingMouseEvents": true, "color": "#00e400", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00e400", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_056d7367b83616f70152473cdc8b2e86 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f02c9a0e5c7b02bc4f4589b416ef284e = $(`<div id="html_f02c9a0e5c7b02bc4f4589b416ef284e" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>關山</strong><br>     PM2.5：8.0 μg/m³<br>     縣市：臺東縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_056d7367b83616f70152473cdc8b2e86.setContent(html_f02c9a0e5c7b02bc4f4589b416ef284e);
+            
+        
+
+        circle_marker_000bb68cb9b470e7c2c791fe6d2eecfa.bindPopup(popup_056d7367b83616f70152473cdc8b2e86)
+        ;
+
+        
+    
+    
+            var circle_marker_c4c745993df37b73c268258eef9e9bed = L.circleMarker(
+                [23.569031, 119.566158],
+                {"bubblingMouseEvents": true, "color": "#00e400", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00e400", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_3ad6ff527fdbe18e1817471df7e6e20f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ded9ee996e49f2c647fe1c2ac61ad578 = $(`<div id="html_ded9ee996e49f2c647fe1c2ac61ad578" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>馬公</strong><br>     PM2.5：13.0 μg/m³<br>     縣市：澎湖縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_3ad6ff527fdbe18e1817471df7e6e20f.setContent(html_ded9ee996e49f2c647fe1c2ac61ad578);
+            
+        
+
+        circle_marker_c4c745993df37b73c268258eef9e9bed.bindPopup(popup_3ad6ff527fdbe18e1817471df7e6e20f)
+        ;
+
+        
+    
+    
+            var circle_marker_e850f10b5006c35a9e4a754adf52af8e = L.circleMarker(
+                [24.432133, 118.312256],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_6e87124654ce3d1ae4e98554d4f83db8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d90d748efa754bb1856d824aa85d92ba = $(`<div id="html_d90d748efa754bb1856d824aa85d92ba" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>金門</strong><br>     PM2.5：33.0 μg/m³<br>     縣市：金門縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_6e87124654ce3d1ae4e98554d4f83db8.setContent(html_d90d748efa754bb1856d824aa85d92ba);
+            
+        
+
+        circle_marker_e850f10b5006c35a9e4a754adf52af8e.bindPopup(popup_6e87124654ce3d1ae4e98554d4f83db8)
+        ;
+
+        
+    
+    
+            var circle_marker_b3eb0f0ba45f4650e97727dee3ad515b = L.circleMarker(
+                [26.153736, 119.952724],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_e8ae135cbbc33c918ba05edf861d43ab = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0a1eef05c595c20d17f25882dbfaf2de = $(`<div id="html_0a1eef05c595c20d17f25882dbfaf2de" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>馬祖</strong><br>     PM2.5：34.0 μg/m³<br>     縣市：連江縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_e8ae135cbbc33c918ba05edf861d43ab.setContent(html_0a1eef05c595c20d17f25882dbfaf2de);
+            
+        
+
+        circle_marker_b3eb0f0ba45f4650e97727dee3ad515b.bindPopup(popup_e8ae135cbbc33c918ba05edf861d43ab)
+        ;
+
+        
+    
+    
+            var circle_marker_cf34db1c26f07cc9a01341164d6a5c35 = L.circleMarker(
+                [22.608711, 120.312017],
+                {"bubblingMouseEvents": true, "color": "#00e400", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00e400", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_3b929fb5637e832222c5740bdb4d6694 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ad654971c1a3367c042ca4a0b3e88620 = $(`<div id="html_ad654971c1a3367c042ca4a0b3e88620" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>復興</strong><br>     PM2.5：13.0 μg/m³<br>     縣市：高雄市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_3b929fb5637e832222c5740bdb4d6694.setContent(html_ad654971c1a3367c042ca4a0b3e88620);
+            
+        
+
+        circle_marker_cf34db1c26f07cc9a01341164d6a5c35.bindPopup(popup_3b929fb5637e832222c5740bdb4d6694)
+        ;
+
+        
+    
+    
+            var circle_marker_e7a811905a17ec2519406877c08d7057 = L.circleMarker(
+                [25.017, 121.516306],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_83218af41f60fcb9fa41b76b2fd511ed = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7eb2f290290e1c3a6c650d25df540cbe = $(`<div id="html_7eb2f290290e1c3a6c650d25df540cbe" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>永和</strong><br>     PM2.5：27.0 μg/m³<br>     縣市：新北市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_83218af41f60fcb9fa41b76b2fd511ed.setContent(html_7eb2f290290e1c3a6c650d25df540cbe);
+            
+        
+
+        circle_marker_e7a811905a17ec2519406877c08d7057.bindPopup(popup_83218af41f60fcb9fa41b76b2fd511ed)
+        ;
+
+        
+    
+    
+            var circle_marker_588dcf609e3592f83fb6d0afac22a888 = L.circleMarker(
+                [23.756389, 120.677306],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_41eb1c18c48842866295ee19f992a701 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_87062d07a52c1143d20d02cccf333162 = $(`<div id="html_87062d07a52c1143d20d02cccf333162" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>竹山</strong><br>     PM2.5：27.0 μg/m³<br>     縣市：南投縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_41eb1c18c48842866295ee19f992a701.setContent(html_87062d07a52c1143d20d02cccf333162);
+            
+        
+
+        circle_marker_588dcf609e3592f83fb6d0afac22a888.bindPopup(popup_41eb1c18c48842866295ee19f992a701)
+        ;
+
+        
+    
+    
+            var circle_marker_f5f0a101a8dc972590e9fe7b8e9e3659 = L.circleMarker(
+                [24.953278, 121.221667],
+                {"bubblingMouseEvents": true, "color": "#ff7e00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7e00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_900a42ffd5d57c6697f19945de3a5157 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c295fe42b7813ce6f0bbe4e4c2b4308b = $(`<div id="html_c295fe42b7813ce6f0bbe4e4c2b4308b" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>中壢</strong><br>     PM2.5：38.0 μg/m³<br>     縣市：桃園市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_900a42ffd5d57c6697f19945de3a5157.setContent(html_c295fe42b7813ce6f0bbe4e4c2b4308b);
+            
+        
+
+        circle_marker_f5f0a101a8dc972590e9fe7b8e9e3659.bindPopup(popup_900a42ffd5d57c6697f19945de3a5157)
+        ;
+
+        
+    
+    
+            var circle_marker_0e803ad412f652d8f45fc773325833a0 = L.circleMarker(
+                [25.072611, 121.493806],
+                {"bubblingMouseEvents": true, "color": "#ff7e00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7e00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_7a0be333ca1e89f4a04c4cabe4341c6c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f3893a764e04b6f35db388f33d030c9a = $(`<div id="html_f3893a764e04b6f35db388f33d030c9a" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>三重</strong><br>     PM2.5：45.0 μg/m³<br>     縣市：新北市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_7a0be333ca1e89f4a04c4cabe4341c6c.setContent(html_f3893a764e04b6f35db388f33d030c9a);
+            
+        
+
+        circle_marker_0e803ad412f652d8f45fc773325833a0.bindPopup(popup_7a0be333ca1e89f4a04c4cabe4341c6c)
+        ;
+
+        
+    
+    
+            var circle_marker_80bccc60f5e3e8e127ae5e0cbe8900dc = L.circleMarker(
+                [24.632203, 121.792928],
+                {"bubblingMouseEvents": true, "color": "#00e400", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00e400", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_ff4fcbe3242c2b7b35052a453eb91ef0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_14124b496e32b8bd22900136475bee41 = $(`<div id="html_14124b496e32b8bd22900136475bee41" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>冬山</strong><br>     PM2.5：10.0 μg/m³<br>     縣市：宜蘭縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_ff4fcbe3242c2b7b35052a453eb91ef0.setContent(html_14124b496e32b8bd22900136475bee41);
+            
+        
+
+        circle_marker_80bccc60f5e3e8e127ae5e0cbe8900dc.bindPopup(popup_ff4fcbe3242c2b7b35052a453eb91ef0)
+        ;
+
+        
+    
+    
+            var circle_marker_caf3d37776cb66bd8073fbfaf8a5791a = L.circleMarker(
+                [24.747917, 121.746394],
+                {"bubblingMouseEvents": true, "color": "#00e400", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00e400", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_d2dd88b05e46d24cfd411530a1fd1c6f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9b0b5749d3d21078e65ff5c767034900 = $(`<div id="html_9b0b5749d3d21078e65ff5c767034900" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>宜蘭</strong><br>     PM2.5：8.0 μg/m³<br>     縣市：宜蘭縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_d2dd88b05e46d24cfd411530a1fd1c6f.setContent(html_9b0b5749d3d21078e65ff5c767034900);
+            
+        
+
+        circle_marker_caf3d37776cb66bd8073fbfaf8a5791a.bindPopup(popup_d2dd88b05e46d24cfd411530a1fd1c6f)
+        ;
+
+        
+    
+    
+            var circle_marker_ae3daf27a7a985610d78e901174f17ff = L.circleMarker(
+                [25.182722, 121.529583],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_d2a8bb39fdbaff6682ea75886d386172 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_caae4dcd7d2df7b2914250f0a4cc4599 = $(`<div id="html_caae4dcd7d2df7b2914250f0a4cc4599" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>陽明</strong><br>     PM2.5：30.0 μg/m³<br>     縣市：臺北市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_d2a8bb39fdbaff6682ea75886d386172.setContent(html_caae4dcd7d2df7b2914250f0a4cc4599);
+            
+        
+
+        circle_marker_ae3daf27a7a985610d78e901174f17ff.bindPopup(popup_d2a8bb39fdbaff6682ea75886d386172)
+        ;
+
+        
+    
+    
+            var circle_marker_0a8e1352c806ffb6490b4cf603c1dd36 = L.circleMarker(
+                [23.971306, 121.599769],
+                {"bubblingMouseEvents": true, "color": "#00e400", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00e400", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_84d7b2aeb25fb8d3f36cdbc899769443 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9b985b6e935331780a824f0ad00b201f = $(`<div id="html_9b985b6e935331780a824f0ad00b201f" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>花蓮</strong><br>     PM2.5：10.0 μg/m³<br>     縣市：花蓮縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_84d7b2aeb25fb8d3f36cdbc899769443.setContent(html_9b985b6e935331780a824f0ad00b201f);
+            
+        
+
+        circle_marker_0a8e1352c806ffb6490b4cf603c1dd36.bindPopup(popup_84d7b2aeb25fb8d3f36cdbc899769443)
+        ;
+
+        
+    
+    
+            var circle_marker_61ad695e7447e413f6dede3828e42b0c = L.circleMarker(
+                [22.755358, 121.15045],
+                {"bubblingMouseEvents": true, "color": "#00e400", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00e400", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_982a21d77e16e04a25ca1e9b4d855e56 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3c99fa8f66740d2cb00e4867a81b1173 = $(`<div id="html_3c99fa8f66740d2cb00e4867a81b1173" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>臺東</strong><br>     PM2.5：8.0 μg/m³<br>     縣市：臺東縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_982a21d77e16e04a25ca1e9b4d855e56.setContent(html_3c99fa8f66740d2cb00e4867a81b1173);
+            
+        
+
+        circle_marker_61ad695e7447e413f6dede3828e42b0c.bindPopup(popup_982a21d77e16e04a25ca1e9b4d855e56)
+        ;
+
+        
+    
+    
+            var circle_marker_c33c92a500f74a242f14a1615ccb2434 = L.circleMarker(
+                [21.958069, 120.788928],
+                {"bubblingMouseEvents": true, "color": "#00e400", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00e400", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_fd8dd95546803605cf87b5546bb07256 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bb5ba9b1f1cf3221fcead7ba7a033617 = $(`<div id="html_bb5ba9b1f1cf3221fcead7ba7a033617" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>恆春</strong><br>     PM2.5：11.0 μg/m³<br>     縣市：屏東縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_fd8dd95546803605cf87b5546bb07256.setContent(html_bb5ba9b1f1cf3221fcead7ba7a033617);
+            
+        
+
+        circle_marker_c33c92a500f74a242f14a1615ccb2434.bindPopup(popup_fd8dd95546803605cf87b5546bb07256)
+        ;
+
+        
+    
+    
+            var circle_marker_e418b3d61aea6c8432bd36a5268564cf = L.circleMarker(
+                [22.523108, 120.561175],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_ee866f6289fb5f8ba218251fcbb00458 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_073bf0ab2fae20f99510fbc909594e47 = $(`<div id="html_073bf0ab2fae20f99510fbc909594e47" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>潮州</strong><br>     PM2.5：28.0 μg/m³<br>     縣市：屏東縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_ee866f6289fb5f8ba218251fcbb00458.setContent(html_073bf0ab2fae20f99510fbc909594e47);
+            
+        
+
+        circle_marker_e418b3d61aea6c8432bd36a5268564cf.bindPopup(popup_ee866f6289fb5f8ba218251fcbb00458)
+        ;
+
+        
+    
+    
+            var circle_marker_08a52ad6555587019ce24ce4ed60a582 = L.circleMarker(
+                [22.673081, 120.488033],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_82ba1193b5dd3bec54c30eac55d9a2d5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0a0fc526c98ae8ece0c410dbb115a5ec = $(`<div id="html_0a0fc526c98ae8ece0c410dbb115a5ec" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>屏東</strong><br>     PM2.5：31.0 μg/m³<br>     縣市：屏東縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_82ba1193b5dd3bec54c30eac55d9a2d5.setContent(html_0a0fc526c98ae8ece0c410dbb115a5ec);
+            
+        
+
+        circle_marker_08a52ad6555587019ce24ce4ed60a582.bindPopup(popup_82ba1193b5dd3bec54c30eac55d9a2d5)
+        ;
+
+        
+    
+    
+            var circle_marker_6e2dc05af1c18c2b7fb072fbb340a9a0 = L.circleMarker(
+                [22.565833, 120.337736],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_9e23e8bf84a8f80abb14cb6f6380c41a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_38e6a8f9875c16af39101c1437705c7e = $(`<div id="html_38e6a8f9875c16af39101c1437705c7e" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>小港</strong><br>     PM2.5：17.0 μg/m³<br>     縣市：高雄市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_9e23e8bf84a8f80abb14cb6f6380c41a.setContent(html_38e6a8f9875c16af39101c1437705c7e);
+            
+        
+
+        circle_marker_6e2dc05af1c18c2b7fb072fbb340a9a0.bindPopup(popup_9e23e8bf84a8f80abb14cb6f6380c41a)
+        ;
+
+        
+    
+    
+            var circle_marker_764b5df578a8d8d32a3d0d6451818186 = L.circleMarker(
+                [22.6044507, 120.30833356],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_e2fee15897601c443fa395f41628159a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d13ed3b272bc29692a11e7b960596197 = $(`<div id="html_d13ed3b272bc29692a11e7b960596197" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>前鎮</strong><br>     PM2.5：20.0 μg/m³<br>     縣市：高雄市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_e2fee15897601c443fa395f41628159a.setContent(html_d13ed3b272bc29692a11e7b960596197);
+            
+        
+
+        circle_marker_764b5df578a8d8d32a3d0d6451818186.bindPopup(popup_e2fee15897601c443fa395f41628159a)
+        ;
+
+        
+    
+    
+            var circle_marker_090e82c489d70dd3f46dd018d09ae910 = L.circleMarker(
+                [22.63390278, 120.28676111],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_e66b0908d176b7226b75d2278915bc5f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5272d992c401a0bb6632921a39e28440 = $(`<div id="html_5272d992c401a0bb6632921a39e28440" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>前金</strong><br>     PM2.5：17.0 μg/m³<br>     縣市：高雄市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_e66b0908d176b7226b75d2278915bc5f.setContent(html_5272d992c401a0bb6632921a39e28440);
+            
+        
+
+        circle_marker_090e82c489d70dd3f46dd018d09ae910.bindPopup(popup_e66b0908d176b7226b75d2278915bc5f)
+        ;
+
+        
+    
+    
+            var circle_marker_0ed1b9fdff31b563f196c383d5d49128 = L.circleMarker(
+                [22.674861, 120.292917],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_1f129111980e0820c516f20435ddc890 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_202793eae87c4359e4d1cfbcaaa74b8f = $(`<div id="html_202793eae87c4359e4d1cfbcaaa74b8f" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>左營</strong><br>     PM2.5：17.0 μg/m³<br>     縣市：高雄市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_1f129111980e0820c516f20435ddc890.setContent(html_202793eae87c4359e4d1cfbcaaa74b8f);
+            
+        
+
+        circle_marker_0ed1b9fdff31b563f196c383d5d49128.bindPopup(popup_1f129111980e0820c516f20435ddc890)
+        ;
+
+        
+    
+    
+            var circle_marker_287c66e2c9c9099c70343f937b8715f3 = L.circleMarker(
+                [22.733667, 120.328289],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_d301c5113657dda756b00c9a0010bef6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6203b18a8ce3a22956d2c644e8daf64b = $(`<div id="html_6203b18a8ce3a22956d2c644e8daf64b" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>楠梓</strong><br>     PM2.5：28.0 μg/m³<br>     縣市：高雄市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_d301c5113657dda756b00c9a0010bef6.setContent(html_6203b18a8ce3a22956d2c644e8daf64b);
+            
+        
+
+        circle_marker_287c66e2c9c9099c70343f937b8715f3.bindPopup(popup_d301c5113657dda756b00c9a0010bef6)
+        ;
+
+        
+    
+    
+            var circle_marker_f28479f06ba17b9ee9eab3c697492251 = L.circleMarker(
+                [22.4795, 120.41175],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_e29b790330fb9f78152fafd6f565863c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_86b26622d6b6aa94b8bba7f2cd117843 = $(`<div id="html_86b26622d6b6aa94b8bba7f2cd117843" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>林園</strong><br>     PM2.5：25.0 μg/m³<br>     縣市：高雄市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_e29b790330fb9f78152fafd6f565863c.setContent(html_86b26622d6b6aa94b8bba7f2cd117843);
+            
+        
+
+        circle_marker_f28479f06ba17b9ee9eab3c697492251.bindPopup(popup_e29b790330fb9f78152fafd6f565863c)
+        ;
+
+        
+    
+    
+            var circle_marker_731841ad9b566963a98b7db9b3c1ab6e = L.circleMarker(
+                [22.56413611, 120.425311],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_7b86eaacffed30872e1d56423f38dd00 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3a0751c5678022c4cb2c9f7caad07431 = $(`<div id="html_3a0751c5678022c4cb2c9f7caad07431" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>大寮</strong><br>     PM2.5：21.0 μg/m³<br>     縣市：高雄市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_7b86eaacffed30872e1d56423f38dd00.setContent(html_3a0751c5678022c4cb2c9f7caad07431);
+            
+        
+
+        circle_marker_731841ad9b566963a98b7db9b3c1ab6e.bindPopup(popup_7b86eaacffed30872e1d56423f38dd00)
+        ;
+
+        
+    
+    
+            var circle_marker_6c13977e7fbaf582045a276062c1bf0d = L.circleMarker(
+                [22.628126, 120.357422],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_7648be4fe3e8087ed6c8873b4177018a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5464083de410811655ea2becab29ad7b = $(`<div id="html_5464083de410811655ea2becab29ad7b" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>鳳山</strong><br>     PM2.5：23.0 μg/m³<br>     縣市：高雄市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_7648be4fe3e8087ed6c8873b4177018a.setContent(html_5464083de410811655ea2becab29ad7b);
+            
+        
+
+        circle_marker_6c13977e7fbaf582045a276062c1bf0d.bindPopup(popup_7648be4fe3e8087ed6c8873b4177018a)
+        ;
+
+        
+    
+    
+            var circle_marker_309c4b69efd4993f0fa58c8a534aa7d3 = L.circleMarker(
+                [22.689056, 120.332631],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_05b2da9317c603ede356a32337b342a1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ec7886d75b5d59aadaca76f4868b9492 = $(`<div id="html_ec7886d75b5d59aadaca76f4868b9492" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>仁武</strong><br>     PM2.5：17.0 μg/m³<br>     縣市：高雄市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_05b2da9317c603ede356a32337b342a1.setContent(html_ec7886d75b5d59aadaca76f4868b9492);
+            
+        
+
+        circle_marker_309c4b69efd4993f0fa58c8a534aa7d3.bindPopup(popup_05b2da9317c603ede356a32337b342a1)
+        ;
+
+        
+    
+    
+            var circle_marker_7e565b9b6162a7054ae1a4fb637e0eb3 = L.circleMarker(
+                [22.757506, 120.305689],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_03db51bc7e84be6944a36db633553c6b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c6c086a3a82eb11927707f0083c5bdf4 = $(`<div id="html_c6c086a3a82eb11927707f0083c5bdf4" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>橋頭</strong><br>     PM2.5：19.0 μg/m³<br>     縣市：高雄市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_03db51bc7e84be6944a36db633553c6b.setContent(html_c6c086a3a82eb11927707f0083c5bdf4);
+            
+        
+
+        circle_marker_7e565b9b6162a7054ae1a4fb637e0eb3.bindPopup(popup_03db51bc7e84be6944a36db633553c6b)
+        ;
+
+        
+    
+    
+            var circle_marker_964aa346b0e1101767c177340101a06b = L.circleMarker(
+                [22.883583, 120.530542],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_7f4de766452c9337ae06a97cf0628c96 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6a591f84f445b558380c471138712558 = $(`<div id="html_6a591f84f445b558380c471138712558" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>美濃</strong><br>     PM2.5：19.0 μg/m³<br>     縣市：高雄市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_7f4de766452c9337ae06a97cf0628c96.setContent(html_6a591f84f445b558380c471138712558);
+            
+        
+
+        circle_marker_964aa346b0e1101767c177340101a06b.bindPopup(popup_7f4de766452c9337ae06a97cf0628c96)
+        ;
+
+        
+    
+    
+            var circle_marker_b0793b41e564c928f8890ef55579d5dd = L.circleMarker(
+                [22.98928311, 120.21947897],
+                {"bubblingMouseEvents": true, "color": "#00e400", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00e400", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_0ee90302c78a4c04d73abb9cd7705a6b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_24e1c6acd43171b47c80d4dd3af9769b = $(`<div id="html_24e1c6acd43171b47c80d4dd3af9769b" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>臺南</strong><br>     PM2.5：11.0 μg/m³<br>     縣市：臺南市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_0ee90302c78a4c04d73abb9cd7705a6b.setContent(html_24e1c6acd43171b47c80d4dd3af9769b);
+            
+        
+
+        circle_marker_b0793b41e564c928f8890ef55579d5dd.bindPopup(popup_0ee90302c78a4c04d73abb9cd7705a6b)
+        ;
+
+        
+    
+    
+            var circle_marker_d686dee4583b787620fdfac5f53c7b45 = L.circleMarker(
+                [23.048197, 120.2175],
+                {"bubblingMouseEvents": true, "color": "#00e400", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00e400", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_d4c8caa0204acfd754ffa8de5b048f72 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ca62499e76ae556d907b6bdbe72baf9d = $(`<div id="html_ca62499e76ae556d907b6bdbe72baf9d" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>安南</strong><br>     PM2.5：12.0 μg/m³<br>     縣市：臺南市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_d4c8caa0204acfd754ffa8de5b048f72.setContent(html_ca62499e76ae556d907b6bdbe72baf9d);
+            
+        
+
+        circle_marker_d686dee4583b787620fdfac5f53c7b45.bindPopup(popup_d4c8caa0204acfd754ffa8de5b048f72)
+        ;
+
+        
+    
+    
+            var circle_marker_4b04bf3105abcdbac9bdacfd11583f24 = L.circleMarker(
+                [23.11337642, 120.29740529],
+                {"bubblingMouseEvents": true, "color": "#00e400", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00e400", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_8f1535791b8133e88ae0549608a52be4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_eff14ee97d39de23a44b4029066d4697 = $(`<div id="html_eff14ee97d39de23a44b4029066d4697" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>善化</strong><br>     PM2.5：12.0 μg/m³<br>     縣市：臺南市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_8f1535791b8133e88ae0549608a52be4.setContent(html_eff14ee97d39de23a44b4029066d4697);
+            
+        
+
+        circle_marker_4b04bf3105abcdbac9bdacfd11583f24.bindPopup(popup_8f1535791b8133e88ae0549608a52be4)
+        ;
+
+        
+    
+    
+            var circle_marker_838a33651ee0e305d6f2e12cb92f52c4 = L.circleMarker(
+                [23.305633, 120.31725],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_82c4f9e8663e2f4c5413bd2b447a6873 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7b0b59be09c686401ef9df3a132e5797 = $(`<div id="html_7b0b59be09c686401ef9df3a132e5797" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>新營</strong><br>     PM2.5：17.0 μg/m³<br>     縣市：臺南市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_82c4f9e8663e2f4c5413bd2b447a6873.setContent(html_7b0b59be09c686401ef9df3a132e5797);
+            
+        
+
+        circle_marker_838a33651ee0e305d6f2e12cb92f52c4.bindPopup(popup_82c4f9e8663e2f4c5413bd2b447a6873)
+        ;
+
+        
+    
+    
+            var circle_marker_9efc727ee421a8b8459a01f701308db3 = L.circleMarker(
+                [23.46477865, 120.44125148],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_a8d6e5a7b8bc9bb3d003511172f3fa4f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_71915d29d821401e9ec11ffd14b4b8b4 = $(`<div id="html_71915d29d821401e9ec11ffd14b4b8b4" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>嘉義</strong><br>     PM2.5：19.0 μg/m³<br>     縣市：嘉義市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_a8d6e5a7b8bc9bb3d003511172f3fa4f.setContent(html_71915d29d821401e9ec11ffd14b4b8b4);
+            
+        
+
+        circle_marker_9efc727ee421a8b8459a01f701308db3.bindPopup(popup_a8d6e5a7b8bc9bb3d003511172f3fa4f)
+        ;
+
+        
+    
+    
+            var circle_marker_5bb93cbf84c4b396c54ca0280ba5c425 = L.circleMarker(
+                [23.702175, 120.19933333],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_12bfea33a2df7848ab84dfa9fa785b7d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8bf80eb527ba1165da2b1ffeb286fd1a = $(`<div id="html_8bf80eb527ba1165da2b1ffeb286fd1a" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>臺西</strong><br>     PM2.5：21.0 μg/m³<br>     縣市：雲林縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_12bfea33a2df7848ab84dfa9fa785b7d.setContent(html_8bf80eb527ba1165da2b1ffeb286fd1a);
+            
+        
+
+        circle_marker_5bb93cbf84c4b396c54ca0280ba5c425.bindPopup(popup_12bfea33a2df7848ab84dfa9fa785b7d)
+        ;
+
+        
+    
+    
+            var circle_marker_833ad1ca241b30340688039474e31bf3 = L.circleMarker(
+                [23.46538, 120.2478],
+                {"bubblingMouseEvents": true, "color": "#00e400", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00e400", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_64b5618b22b049e2c75d68daf54211b1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3c6d7ec8341c9351e330d896bc635dde = $(`<div id="html_3c6d7ec8341c9351e330d896bc635dde" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>朴子</strong><br>     PM2.5：13.0 μg/m³<br>     縣市：嘉義縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_64b5618b22b049e2c75d68daf54211b1.setContent(html_3c6d7ec8341c9351e330d896bc635dde);
+            
+        
+
+        circle_marker_833ad1ca241b30340688039474e31bf3.bindPopup(popup_64b5618b22b049e2c75d68daf54211b1)
+        ;
+
+        
+    
+    
+            var circle_marker_74aa06431c99a3eb5b00599ecc2e6919 = L.circleMarker(
+                [23.757547, 120.348742],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_cd3dff85ff220f7a59a7f9a8db664421 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7fc310ad39e2015c278d2cc27faea874 = $(`<div id="html_7fc310ad39e2015c278d2cc27faea874" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>崙背</strong><br>     PM2.5：19.0 μg/m³<br>     縣市：雲林縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_cd3dff85ff220f7a59a7f9a8db664421.setContent(html_7fc310ad39e2015c278d2cc27faea874);
+            
+        
+
+        circle_marker_74aa06431c99a3eb5b00599ecc2e6919.bindPopup(popup_cd3dff85ff220f7a59a7f9a8db664421)
+        ;
+
+        
+    
+    
+            var circle_marker_6b6a53bafb868018c6786964962a6b9c = L.circleMarker(
+                [23.711853, 120.544994],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_251f9990aacac82b5c5aa936e2b9b38b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_20054a56c3b31daf4c71e7d48cf51aff = $(`<div id="html_20054a56c3b31daf4c71e7d48cf51aff" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>斗六</strong><br>     PM2.5：23.0 μg/m³<br>     縣市：雲林縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_251f9990aacac82b5c5aa936e2b9b38b.setContent(html_20054a56c3b31daf4c71e7d48cf51aff);
+            
+        
+
+        circle_marker_6b6a53bafb868018c6786964962a6b9c.bindPopup(popup_251f9990aacac82b5c5aa936e2b9b38b)
+        ;
+
+        
+    
+    
+            var circle_marker_824d5a726069fe5dc07de7bd79bd61ce = L.circleMarker(
+                [23.913, 120.685306],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_c3cae4979d0f2989038c6399edd92930 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6b04cf8a53747c9d4552e1127e899317 = $(`<div id="html_6b04cf8a53747c9d4552e1127e899317" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>南投</strong><br>     PM2.5：19.0 μg/m³<br>     縣市：南投縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_c3cae4979d0f2989038c6399edd92930.setContent(html_6b04cf8a53747c9d4552e1127e899317);
+            
+        
+
+        circle_marker_824d5a726069fe5dc07de7bd79bd61ce.bindPopup(popup_c3cae4979d0f2989038c6399edd92930)
+        ;
+
+        
+    
+    
+            var circle_marker_48399099f34d31c981696fd3771efcde = L.circleMarker(
+                [23.925175, 120.409653],
+                {"bubblingMouseEvents": true, "color": "#00e400", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00e400", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_4d3120ef31f0cbb9e93d57e52b32bf2a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b7f83833570f5742513abdb2e2367147 = $(`<div id="html_b7f83833570f5742513abdb2e2367147" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>二林</strong><br>     PM2.5：10.0 μg/m³<br>     縣市：彰化縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_4d3120ef31f0cbb9e93d57e52b32bf2a.setContent(html_b7f83833570f5742513abdb2e2367147);
+            
+        
+
+        circle_marker_48399099f34d31c981696fd3771efcde.bindPopup(popup_4d3120ef31f0cbb9e93d57e52b32bf2a)
+        ;
+
+        
+    
+    
+            var circle_marker_f08ba28e1829d20b7305dc3723dcd2a4 = L.circleMarker(
+                [24.131672, 120.469061],
+                {"bubblingMouseEvents": true, "color": "#00e400", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00e400", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_bb95934ff86b354967834f783411e42c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3b017b6ebbd64d32be5b27b4c8cb4855 = $(`<div id="html_3b017b6ebbd64d32be5b27b4c8cb4855" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>線西</strong><br>     PM2.5：14.0 μg/m³<br>     縣市：彰化縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_bb95934ff86b354967834f783411e42c.setContent(html_3b017b6ebbd64d32be5b27b4c8cb4855);
+            
+        
+
+        circle_marker_f08ba28e1829d20b7305dc3723dcd2a4.bindPopup(popup_bb95934ff86b354967834f783411e42c)
+        ;
+
+        
+    
+    
+            var circle_marker_553bcc83779cd8cb488f36dff3d43ca8 = L.circleMarker(
+                [24.066, 120.541519],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_9553567578f9d115a2e19de374be3a1f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4df2978a19e8ba52ee4d14e0cde51704 = $(`<div id="html_4df2978a19e8ba52ee4d14e0cde51704" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>彰化</strong><br>     PM2.5：20.0 μg/m³<br>     縣市：彰化縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_9553567578f9d115a2e19de374be3a1f.setContent(html_4df2978a19e8ba52ee4d14e0cde51704);
+            
+        
+
+        circle_marker_553bcc83779cd8cb488f36dff3d43ca8.bindPopup(popup_9553567578f9d115a2e19de374be3a1f)
+        ;
+
+        
+    
+    
+            var circle_marker_6ce900828b8f2e4631ed10888230e6e6 = L.circleMarker(
+                [24.162197, 120.616917],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_2ac16baa0006cf1d71436ebeeb4d5a6c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_92e8f7632ba2e7f4e3757284e28de13e = $(`<div id="html_92e8f7632ba2e7f4e3757284e28de13e" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>西屯</strong><br>     PM2.5：17.0 μg/m³<br>     縣市：臺中市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_2ac16baa0006cf1d71436ebeeb4d5a6c.setContent(html_92e8f7632ba2e7f4e3757284e28de13e);
+            
+        
+
+        circle_marker_6ce900828b8f2e4631ed10888230e6e6.bindPopup(popup_2ac16baa0006cf1d71436ebeeb4d5a6c)
+        ;
+
+        
+    
+    
+            var circle_marker_8317b6a02f1e2fd5e368fe6b36fd4d9a = L.circleMarker(
+                [24.151958, 120.641092],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_0261b889979a0b717cf04312fecc2f4e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_140e6e976919c9f2571c7e0521b24873 = $(`<div id="html_140e6e976919c9f2571c7e0521b24873" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>忠明</strong><br>     PM2.5：22.0 μg/m³<br>     縣市：臺中市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_0261b889979a0b717cf04312fecc2f4e.setContent(html_140e6e976919c9f2571c7e0521b24873);
+            
+        
+
+        circle_marker_8317b6a02f1e2fd5e368fe6b36fd4d9a.bindPopup(popup_0261b889979a0b717cf04312fecc2f4e)
+        ;
+
+        
+    
+    
+            var circle_marker_b74001d59717e671452b24fcb872e1b1 = L.circleMarker(
+                [24.09961111, 120.67844444],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_443ba1045ebcea5f2fee114f44923e2b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6543239a2fd0688cd3d1129576383ea2 = $(`<div id="html_6543239a2fd0688cd3d1129576383ea2" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>大里</strong><br>     PM2.5：26.0 μg/m³<br>     縣市：臺中市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_443ba1045ebcea5f2fee114f44923e2b.setContent(html_6543239a2fd0688cd3d1129576383ea2);
+            
+        
+
+        circle_marker_b74001d59717e671452b24fcb872e1b1.bindPopup(popup_443ba1045ebcea5f2fee114f44923e2b)
+        ;
+
+        
+    
+    
+            var circle_marker_f5a88ad66fdc28ea37c0637ce269814b = L.circleMarker(
+                [24.225628, 120.568794],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_1cc30eca801e4197e919bfe1afec6fe0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0495ec36658859ff5e6bdb054063b34d = $(`<div id="html_0495ec36658859ff5e6bdb054063b34d" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>沙鹿</strong><br>     PM2.5：18.0 μg/m³<br>     縣市：臺中市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_1cc30eca801e4197e919bfe1afec6fe0.setContent(html_0495ec36658859ff5e6bdb054063b34d);
+            
+        
+
+        circle_marker_f5a88ad66fdc28ea37c0637ce269814b.bindPopup(popup_1cc30eca801e4197e919bfe1afec6fe0)
+        ;
+
+        
+    
+    
+            var circle_marker_3a34bbbc16164fb85834212c8c5f8c89 = L.circleMarker(
+                [24.25699731, 120.74252414],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_4417df023cf2c38b5fd4bdf220aaa04f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_050be2803a288503147acb65009ea63b = $(`<div id="html_050be2803a288503147acb65009ea63b" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>豐原</strong><br>     PM2.5：24.0 μg/m³<br>     縣市：臺中市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_4417df023cf2c38b5fd4bdf220aaa04f.setContent(html_050be2803a288503147acb65009ea63b);
+            
+        
+
+        circle_marker_3a34bbbc16164fb85834212c8c5f8c89.bindPopup(popup_4417df023cf2c38b5fd4bdf220aaa04f)
+        ;
+
+        
+    
+    
+            var circle_marker_869664a2b18706e04434cfcb0552800e = L.circleMarker(
+                [24.38248443, 120.75956754],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_b156c0311829a3e1be60a14544844e60 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0578d7541d06177e4075526258d6d787 = $(`<div id="html_0578d7541d06177e4075526258d6d787" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>三義</strong><br>     PM2.5：29.0 μg/m³<br>     縣市：苗栗縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_b156c0311829a3e1be60a14544844e60.setContent(html_0578d7541d06177e4075526258d6d787);
+            
+        
+
+        circle_marker_869664a2b18706e04434cfcb0552800e.bindPopup(popup_b156c0311829a3e1be60a14544844e60)
+        ;
+
+        
+    
+    
+            var circle_marker_df2c050fd2a93cdd8ff637802693f537 = L.circleMarker(
+                [24.56499183, 120.82011468],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_a9d65663b967dde626c9a89a45c24b4b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b272b8003adf5a9eff122c7035e47618 = $(`<div id="html_b272b8003adf5a9eff122c7035e47618" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>苗栗</strong><br>     PM2.5：22.0 μg/m³<br>     縣市：苗栗縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_a9d65663b967dde626c9a89a45c24b4b.setContent(html_b272b8003adf5a9eff122c7035e47618);
+            
+        
+
+        circle_marker_df2c050fd2a93cdd8ff637802693f537.bindPopup(popup_a9d65663b967dde626c9a89a45c24b4b)
+        ;
+
+        
+    
+    
+            var circle_marker_356f3d38c52f8a77ac91dc4be09237bc = L.circleMarker(
+                [24.69690679, 120.89869286],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_b0602b9c5074696ba934f57780bde45d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_44d2afdf02382a08cdc11a963a299169 = $(`<div id="html_44d2afdf02382a08cdc11a963a299169" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>頭份</strong><br>     PM2.5：31.0 μg/m³<br>     縣市：苗栗縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_b0602b9c5074696ba934f57780bde45d.setContent(html_44d2afdf02382a08cdc11a963a299169);
+            
+        
+
+        circle_marker_356f3d38c52f8a77ac91dc4be09237bc.bindPopup(popup_b0602b9c5074696ba934f57780bde45d)
+        ;
+
+        
+    
+    
+            var circle_marker_84d1493b32a5364e38fdb99280015eb5 = L.circleMarker(
+                [24.8056356, 120.97236752],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_db827219e9afb60f7d4d532f439863d6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_289ec0e456978fe561f7f574d01777a6 = $(`<div id="html_289ec0e456978fe561f7f574d01777a6" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>新竹</strong><br>     PM2.5：25.0 μg/m³<br>     縣市：新竹市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_db827219e9afb60f7d4d532f439863d6.setContent(html_289ec0e456978fe561f7f574d01777a6);
+            
+        
+
+        circle_marker_84d1493b32a5364e38fdb99280015eb5.bindPopup(popup_db827219e9afb60f7d4d532f439863d6)
+        ;
+
+        
+    
+    
+            var circle_marker_2f21b4e67117b4b7ef94100ed4063d85 = L.circleMarker(
+                [24.74091408, 121.08895493],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_ff0a1fa9a3c028376b8cb822581aa772 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1c622e9406ac9f15cf260e623cff5d43 = $(`<div id="html_1c622e9406ac9f15cf260e623cff5d43" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>竹東</strong><br>     PM2.5：24.0 μg/m³<br>     縣市：新竹縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_ff0a1fa9a3c028376b8cb822581aa772.setContent(html_1c622e9406ac9f15cf260e623cff5d43);
+            
+        
+
+        circle_marker_2f21b4e67117b4b7ef94100ed4063d85.bindPopup(popup_ff0a1fa9a3c028376b8cb822581aa772)
+        ;
+
+        
+    
+    
+            var circle_marker_90427153b58dc7667a3b2dfca7ff0beb = L.circleMarker(
+                [24.90009696, 121.03886894],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_acf1c9cc090e0e843a10e50b11554200 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_459a7ca94f7da8a7990a3341a4e1ba87 = $(`<div id="html_459a7ca94f7da8a7990a3341a4e1ba87" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>湖口</strong><br>     PM2.5：27.0 μg/m³<br>     縣市：新竹縣<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_acf1c9cc090e0e843a10e50b11554200.setContent(html_459a7ca94f7da8a7990a3341a4e1ba87);
+            
+        
+
+        circle_marker_90427153b58dc7667a3b2dfca7ff0beb.bindPopup(popup_acf1c9cc090e0e843a10e50b11554200)
+        ;
+
+        
+    
+    
+            var circle_marker_ee473990c5dde0d6497e5630f3e4702f = L.circleMarker(
+                [24.86400048, 121.21645772],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_39842dc8bed77bc3852419382cb93cdb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d2df8bfa35473af27476e4b7cc10e12e = $(`<div id="html_d2df8bfa35473af27476e4b7cc10e12e" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>龍潭</strong><br>     PM2.5：23.0 μg/m³<br>     縣市：桃園市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_39842dc8bed77bc3852419382cb93cdb.setContent(html_d2df8bfa35473af27476e4b7cc10e12e);
+            
+        
+
+        circle_marker_ee473990c5dde0d6497e5630f3e4702f.bindPopup(popup_39842dc8bed77bc3852419382cb93cdb)
+        ;
+
+        
+    
+    
+            var circle_marker_39e5bb914e21fd4f4c293f6d84fa2b2e = L.circleMarker(
+                [24.952786, 121.203986],
+                {"bubblingMouseEvents": true, "color": "#ff7e00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7e00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_5f3671a449c0894de851bad8cf4247e9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cad2a74b0438c8647ed0add35bd293e8 = $(`<div id="html_cad2a74b0438c8647ed0add35bd293e8" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>平鎮</strong><br>     PM2.5：37.0 μg/m³<br>     縣市：桃園市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_5f3671a449c0894de851bad8cf4247e9.setContent(html_cad2a74b0438c8647ed0add35bd293e8);
+            
+        
+
+        circle_marker_39e5bb914e21fd4f4c293f6d84fa2b2e.bindPopup(popup_5f3671a449c0894de851bad8cf4247e9)
+        ;
+
+        
+    
+    
+            var circle_marker_feba08a863a50b0710d9e5926ea09c3e = L.circleMarker(
+                [25.06100357, 121.20251473],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_20a414deb88a111c9b02a538f454975f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d6da4ba49809d5b6c8f96b0dc3172471 = $(`<div id="html_d6da4ba49809d5b6c8f96b0dc3172471" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>大園</strong><br>     PM2.5：34.0 μg/m³<br>     縣市：桃園市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_20a414deb88a111c9b02a538f454975f.setContent(html_d6da4ba49809d5b6c8f96b0dc3172471);
+            
+        
+
+        circle_marker_feba08a863a50b0710d9e5926ea09c3e.bindPopup(popup_20a414deb88a111c9b02a538f454975f)
+        ;
+
+        
+    
+    
+            var circle_marker_cb557ea8d94754c544fcff6e3e5627d7 = L.circleMarker(
+                [24.9947107, 121.30500531],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_a518165f0ce4ea651b71be0349fcb3c5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_86044a771d66c9cf5a7bfb16e3a05e46 = $(`<div id="html_86044a771d66c9cf5a7bfb16e3a05e46" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>桃園</strong><br>     PM2.5：32.0 μg/m³<br>     縣市：桃園市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_a518165f0ce4ea651b71be0349fcb3c5.setContent(html_86044a771d66c9cf5a7bfb16e3a05e46);
+            
+        
+
+        circle_marker_cb557ea8d94754c544fcff6e3e5627d7.bindPopup(popup_a518165f0ce4ea651b71be0349fcb3c5)
+        ;
+
+        
+    
+    
+            var circle_marker_0cd74e645ec5c557d5de1a4ec984c77a = L.circleMarker(
+                [25.06331455, 121.51342074],
+                {"bubblingMouseEvents": true, "color": "#ff7e00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7e00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_643a462b1e2b0588a5e6218a8be81829 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d89feff50f999c32debff3ca2a6e8221 = $(`<div id="html_d89feff50f999c32debff3ca2a6e8221" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>大同</strong><br>     PM2.5：39.0 μg/m³<br>     縣市：臺北市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_643a462b1e2b0588a5e6218a8be81829.setContent(html_d89feff50f999c32debff3ca2a6e8221);
+            
+        
+
+        circle_marker_0cd74e645ec5c557d5de1a4ec984c77a.bindPopup(popup_643a462b1e2b0588a5e6218a8be81829)
+        ;
+
+        
+    
+    
+            var circle_marker_f479c349402887ec34bbe2fd6de96ee6 = L.circleMarker(
+                [25.05, 121.578611],
+                {"bubblingMouseEvents": true, "color": "#ff7e00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7e00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_7845d7e51005201838a1ee81c3e2af1f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_68dd176c6e83b06bf66db8d75aac9d79 = $(`<div id="html_68dd176c6e83b06bf66db8d75aac9d79" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>松山</strong><br>     PM2.5：36.0 μg/m³<br>     縣市：臺北市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_7845d7e51005201838a1ee81c3e2af1f.setContent(html_68dd176c6e83b06bf66db8d75aac9d79);
+            
+        
+
+        circle_marker_f479c349402887ec34bbe2fd6de96ee6.bindPopup(popup_7845d7e51005201838a1ee81c3e2af1f)
+        ;
+
+        
+    
+    
+            var circle_marker_4ef61d78ed4c0a7a059e93963737b9fa = L.circleMarker(
+                [25.020608, 121.529556],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_5dd40dfe252d6ca6343c7ea983dece2f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_23979c7cf41679b4174186c58d0773f5 = $(`<div id="html_23979c7cf41679b4174186c58d0773f5" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>古亭</strong><br>     PM2.5：27.0 μg/m³<br>     縣市：臺北市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_5dd40dfe252d6ca6343c7ea983dece2f.setContent(html_23979c7cf41679b4174186c58d0773f5);
+            
+        
+
+        circle_marker_4ef61d78ed4c0a7a059e93963737b9fa.bindPopup(popup_5dd40dfe252d6ca6343c7ea983dece2f)
+        ;
+
+        
+    
+    
+            var circle_marker_262056db2e121ce585be94e2e9c352bb = L.circleMarker(
+                [25.046503, 121.507972],
+                {"bubblingMouseEvents": true, "color": "#ff7e00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7e00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_22338e2780eb4d214904bbfa0cb78198 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d5a8683fb4d55644ac8126133f5a3090 = $(`<div id="html_d5a8683fb4d55644ac8126133f5a3090" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>萬華</strong><br>     PM2.5：37.0 μg/m³<br>     縣市：臺北市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_22338e2780eb4d214904bbfa0cb78198.setContent(html_d5a8683fb4d55644ac8126133f5a3090);
+            
+        
+
+        circle_marker_262056db2e121ce585be94e2e9c352bb.bindPopup(popup_22338e2780eb4d214904bbfa0cb78198)
+        ;
+
+        
+    
+    
+            var circle_marker_cdefaeb14c30d4a0047e2198bc218c81 = L.circleMarker(
+                [25.062361, 121.526528],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_63d99ab46ac9fa38198bacd5b75ccb40 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7a1191cd3d533d86f97da17ee78a8296 = $(`<div id="html_7a1191cd3d533d86f97da17ee78a8296" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>中山</strong><br>     PM2.5：32.0 μg/m³<br>     縣市：臺北市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_63d99ab46ac9fa38198bacd5b75ccb40.setContent(html_7a1191cd3d533d86f97da17ee78a8296);
+            
+        
+
+        circle_marker_cdefaeb14c30d4a0047e2198bc218c81.bindPopup(popup_63d99ab46ac9fa38198bacd5b75ccb40)
+        ;
+
+        
+    
+    
+            var circle_marker_60e8aee730ea7a4b0bc96cfe48549fe6 = L.circleMarker(
+                [25.10334003, 121.51666356],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_a76e9b8b756e4c2cf0fd315657945640 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3e28663126233b28db6bac5ebd9d96e6 = $(`<div id="html_3e28663126233b28db6bac5ebd9d96e6" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>士林</strong><br>     PM2.5：35.0 μg/m³<br>     縣市：臺北市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_a76e9b8b756e4c2cf0fd315657945640.setContent(html_3e28663126233b28db6bac5ebd9d96e6);
+            
+        
+
+        circle_marker_60e8aee730ea7a4b0bc96cfe48549fe6.bindPopup(popup_a76e9b8b756e4c2cf0fd315657945640)
+        ;
+
+        
+    
+    
+            var circle_marker_c003f5e8d415c7b84b81f73a41a09c34 = L.circleMarker(
+                [25.1645, 121.449239],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_b8fa2298b0e32f425d03d71fed7b2d4d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_150d0af810ebf75756c2d34eab4401b6 = $(`<div id="html_150d0af810ebf75756c2d34eab4401b6" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>淡水</strong><br>     PM2.5：29.0 μg/m³<br>     縣市：新北市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_b8fa2298b0e32f425d03d71fed7b2d4d.setContent(html_150d0af810ebf75756c2d34eab4401b6);
+            
+        
+
+        circle_marker_c003f5e8d415c7b84b81f73a41a09c34.bindPopup(popup_b8fa2298b0e32f425d03d71fed7b2d4d)
+        ;
+
+        
+    
+    
+            var circle_marker_e83acb6f0748c4231fbe63291d836c58 = L.circleMarker(
+                [25.07798949, 121.36548982],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_0597fc32a8c7c9dbba87eef1ada09eb4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ef12ef76d4d9cd3cd224cb20f47218b5 = $(`<div id="html_ef12ef76d4d9cd3cd224cb20f47218b5" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>林口</strong><br>     PM2.5：32.0 μg/m³<br>     縣市：新北市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_0597fc32a8c7c9dbba87eef1ada09eb4.setContent(html_ef12ef76d4d9cd3cd224cb20f47218b5);
+            
+        
+
+        circle_marker_e83acb6f0748c4231fbe63291d836c58.bindPopup(popup_0597fc32a8c7c9dbba87eef1ada09eb4)
+        ;
+
+        
+    
+    
+            var circle_marker_eb1324c35a1033840e0140f6b814ce1b = L.circleMarker(
+                [25.06895, 121.481028],
+                {"bubblingMouseEvents": true, "color": "#ff7e00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7e00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_e6f7a64b438ec3a38dc0e6c3bc7fc4ba = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_04414ff10d87a5eda3b392801e2a7d13 = $(`<div id="html_04414ff10d87a5eda3b392801e2a7d13" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>菜寮</strong><br>     PM2.5：41.0 μg/m³<br>     縣市：新北市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_e6f7a64b438ec3a38dc0e6c3bc7fc4ba.setContent(html_04414ff10d87a5eda3b392801e2a7d13);
+            
+        
+
+        circle_marker_eb1324c35a1033840e0140f6b814ce1b.bindPopup(popup_e6f7a64b438ec3a38dc0e6c3bc7fc4ba)
+        ;
+
+        
+    
+    
+            var circle_marker_a87751daa9747c6a36f228ebce3b47ad = L.circleMarker(
+                [25.037972, 121.4325],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_fdc003c1442f28d09c1b28a496ab1fff = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3b8001d9b22319c984517a8ef499b9bc = $(`<div id="html_3b8001d9b22319c984517a8ef499b9bc" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>新莊</strong><br>     PM2.5：23.0 μg/m³<br>     縣市：新北市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_fdc003c1442f28d09c1b28a496ab1fff.setContent(html_3b8001d9b22319c984517a8ef499b9bc);
+            
+        
+
+        circle_marker_a87751daa9747c6a36f228ebce3b47ad.bindPopup(popup_fdc003c1442f28d09c1b28a496ab1fff)
+        ;
+
+        
+    
+    
+            var circle_marker_72784da2a430631880c01e075dcaae71 = L.circleMarker(
+                [25.012972, 121.458667],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_ad7ef0deb5aec1291c0d810c7592c116 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cb6fea364c7368f9f94f6ffc0c0d37b3 = $(`<div id="html_cb6fea364c7368f9f94f6ffc0c0d37b3" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>板橋</strong><br>     PM2.5：17.0 μg/m³<br>     縣市：新北市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_ad7ef0deb5aec1291c0d810c7592c116.setContent(html_cb6fea364c7368f9f94f6ffc0c0d37b3);
+            
+        
+
+        circle_marker_72784da2a430631880c01e075dcaae71.bindPopup(popup_ad7ef0deb5aec1291c0d810c7592c116)
+        ;
+
+        
+    
+    
+            var circle_marker_9ea8d5ed4b51611d1a4b09315d432b1e = L.circleMarker(
+                [24.982528, 121.451861],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_84aa2044aeb23ddb4f719aff0439bfa5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f25fea15104366e87c354228766a98fa = $(`<div id="html_f25fea15104366e87c354228766a98fa" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>土城</strong><br>     PM2.5：23.0 μg/m³<br>     縣市：新北市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_84aa2044aeb23ddb4f719aff0439bfa5.setContent(html_f25fea15104366e87c354228766a98fa);
+            
+        
+
+        circle_marker_9ea8d5ed4b51611d1a4b09315d432b1e.bindPopup(popup_84aa2044aeb23ddb4f719aff0439bfa5)
+        ;
+
+        
+    
+    
+            var circle_marker_4bebc0bb0d94239f5a6d7e80231bb864 = L.circleMarker(
+                [24.977222, 121.537778],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_000dd843ea9cb3138d7aa3bd66b8f25b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_92282709c7a4b1d52b181c454b876953 = $(`<div id="html_92282709c7a4b1d52b181c454b876953" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>新店</strong><br>     PM2.5：19.0 μg/m³<br>     縣市：新北市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_000dd843ea9cb3138d7aa3bd66b8f25b.setContent(html_92282709c7a4b1d52b181c454b876953);
+            
+        
+
+        circle_marker_4bebc0bb0d94239f5a6d7e80231bb864.bindPopup(popup_000dd843ea9cb3138d7aa3bd66b8f25b)
+        ;
+
+        
+    
+    
+            var circle_marker_fd65a1ad872ca4f8117556c3675ba0f6 = L.circleMarker(
+                [25.06624, 121.64081],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_646d0fad120e56815366300f099fbfe8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c532c81d8235dc0353c3650ed1e0e5fc = $(`<div id="html_c532c81d8235dc0353c3650ed1e0e5fc" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>汐止</strong><br>     PM2.5：31.0 μg/m³<br>     縣市：新北市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_646d0fad120e56815366300f099fbfe8.setContent(html_c532c81d8235dc0353c3650ed1e0e5fc);
+            
+        
+
+        circle_marker_fd65a1ad872ca4f8117556c3675ba0f6.bindPopup(popup_646d0fad120e56815366300f099fbfe8)
+        ;
+
+        
+    
+    
+            var circle_marker_04359a7572f36b8dbbdfb391119390fe = L.circleMarker(
+                [25.129167, 121.760056],
+                {"bubblingMouseEvents": true, "color": "#ffff00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_c575f9a7ec4c660585bf88a918ab2883);
+        
+    
+        var popup_132ead1a66aea348cc97e15ff8c0507e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0dd90349056f8bd735a390e20cc0d27f = $(`<div id="html_0dd90349056f8bd735a390e20cc0d27f" style="width: 100.0%; height: 100.0%;"> <div style="     font-family: 'Arial', sans-serif;     font-size: 14px;     line-height: 1.6;     padding: 10px 12px;     background-color: white;     border-radius: 10px;     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);     color: #222;     width: 200px; ">     📍 <strong>基隆</strong><br>     PM2.5：21.0 μg/m³<br>     縣市：基隆市<br>     2025-04-09 13:00:00 更新 </div> </div>`)[0];
+                popup_132ead1a66aea348cc97e15ff8c0507e.setContent(html_0dd90349056f8bd735a390e20cc0d27f);
+            
+        
+
+        circle_marker_04359a7572f36b8dbbdfb391119390fe.bindPopup(popup_132ead1a66aea348cc97e15ff8c0507e)
+        ;
+
+        
+    
+</script>
+</html>
