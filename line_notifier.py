@@ -10,7 +10,7 @@ line_bot_api = LineBotApi(channel_access_token)
 
 def send_pm25_flex_message(exceed_pm25_dataframe):
     message = f"超標地區：{exceed_pm25_dataframe["sitename"]}"
-    flex_meaasge = FlexSendMessage(
+    flex_message = FlexSendMessage(
         alt_text = "PM2.5觀測數據",
         contents={
             "type":"bubble",
@@ -36,8 +36,8 @@ def send_pm25_flex_message(exceed_pm25_dataframe):
                         "text":message
                     },
                     {
-                        "type":"buttom",
-                        "sytle":"primary",
+                        "type":"button",
+                        "style":"primary",
                         "action":{
                             "type":"uri",
                             "label":"查看全台PM2.5觀測結果",
@@ -49,7 +49,7 @@ def send_pm25_flex_message(exceed_pm25_dataframe):
         }
     )
     try:
-        line_bot_api.broadcast(flex_meaasge)
+        line_bot_api.broadcast(flex_message)
         print("訊息發送成功")
     except Exception as e:
         print("發送失敗:", e)
