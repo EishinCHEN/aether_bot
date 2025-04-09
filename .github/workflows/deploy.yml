@@ -19,11 +19,15 @@ jobs:
           python-version: "3.10"    
 
       - name: Install Dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r aether_bot/requirements.txt
 
       - name: Debug - show installed packages
         run: pip list
   
+      - name: Debug - show current directory
+        run: |
+          pwd
+          ls -al
 
       - name: Run Script
         env: 
