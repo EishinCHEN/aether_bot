@@ -8,7 +8,8 @@ channel_access_token = os.getenv("LINE_CHANNEL_ACCESS_TOKEN")
 # 初始化 LineBotApi 物件
 line_bot_api = LineBotApi(channel_access_token)
 
-def send_pm25_flex_message(message):
+def send_pm25_flex_message(exceed_pm25_dataframe):
+    message = f"超標地區：{exceed_pm25_dataframe["sitename"]}"
     flex_meaasge = FlexSendMessage(
         alt_text = "PM2.5觀測數據",
         contents={
@@ -32,7 +33,7 @@ def send_pm25_flex_message(message):
                 "contents":[
                     {
                         "type":"text",
-                        "text":""
+                        "text":message
                     },
                     {
                         "type":"buttom",
