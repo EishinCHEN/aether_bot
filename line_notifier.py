@@ -23,7 +23,7 @@ def send_pm25_flex_message(exceed_pm25_dataframe):
                         "text":"最新PM2.5觀測結果",
                         "weight":"bold",
                         "size":"xl",
-                        "color":"#000000"
+                        "color":"#262625"
                     }
                 ]
             },
