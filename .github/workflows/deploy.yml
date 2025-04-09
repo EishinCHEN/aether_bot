@@ -21,6 +21,10 @@ jobs:
       - name: Install Dependencies
         run: pip install -r requirements.txt
 
+      - name: Debug - show installed packages
+        run: pip list
+  
+
       - name: Run Script
         env: 
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
