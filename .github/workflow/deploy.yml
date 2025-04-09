@@ -2,6 +2,8 @@ name: Aerher Bot
 
 on:
   push:
+    branches:
+      - main
 
 jobs:
   deploy:
