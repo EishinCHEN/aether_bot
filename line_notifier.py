@@ -35,7 +35,8 @@ def send_pm25_flex_message(exceed_pm25_dataframe):
                 "contents":[
                     {
                         "type":"text",
-                        "text":{"type":"text", "text":message, "wrap":True}
+                        "text":message,
+                          "wrap":True
                     },
                     {
                         "type":"button",
