@@ -33,7 +33,15 @@ jobs:
       - name: Run Script
         env: 
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
-        run: python main.py
+        run: |
+             python main.py
+             echo "main.py executed"
+
+      - name: Debug - check map.html timestamp
+        run: |
+             ls -l pm25_map.html
+             head -n 10 pm25_map.html
+           
 
       - name: Prepare HTML for GitHub Pages
         run: |
