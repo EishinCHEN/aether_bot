@@ -39,10 +39,10 @@ def show_pm25_map(pm25_dataframe, lng_lat_dataframe):
     # 合併＆整理資料
     pm25_dataframe = pm25_dataframe.rename(columns={"site": "sitename"})
     pm25_dataframe = pm25_dataframe.dropna(subset=["pm25"])
+    pm25_dataframe["datacreationdate"] = pm25_dataframe["datacreationdate"].dt.strftime("%Y-%m-%d %H:%M:%S")
     df = pd.merge(pm25_dataframe, lng_lat_dataframe, on = "sitename")
     df = df.drop(columns=["county_y"])
     df = df.rename(columns={"county_x":"county"})
-    print(df)
 
     # 建立地圖物件
     map = folium.Map(location=[23.7, 121], zoom_start=7)
