@@ -1,5 +1,5 @@
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timezone
 import folium
 from branca.element import Template, MacroElement
 
@@ -17,16 +17,18 @@ def get_latest_pm25_data(df_data):
     # 型別轉換
     df_data["pm25"] = pd.to_numeric(df_data["pm25"], errors="coerce")
     df_data["datacreationdate"] = pd.to_datetime(df_data["datacreationdate"], errors="coerce")
-
+    # 加入時區
+    df_data["datacreationdate"] = df_data["datacreationdate"].dt.tz_localize("Asia/Taipei", ambiguous='NaT', nonexistent='shift_forward')
+    
     # 移除空值
     df_data = df_data.dropna(subset=["pm25", "datacreationdate"]).copy()
     
-    # 計算最近時間（不論正負值）
-    now = datetime.now()
-    df_data["time_diff"] = (df_data["datacreationdate"] - now).abs() 
+    # 計算相同時區內最近時間（不論正負值）
+    now = datetime.now(timezone.utc)
+    df_data["time_diff"] = (df_data["datacreationdate"].dt.tz_convert("UTC") - now).abs() 
     min_time_diff = df_data["time_diff"].min()
     lastest_data = df_data.loc[df_data["time_diff"] == min_time_diff]
-    
+
     return lastest_data
 
 # 擷取pm2.5濃度高於35的資料
