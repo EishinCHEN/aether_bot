@@ -7,7 +7,7 @@ def main():
     latest_pm25_data = get_latest_pm25_data(pm25_data)
     site_information = get_site_information()
     show_pm25_map(latest_pm25_data, site_information)
-    exceed_pm25_data = extract_exceed_pm25_data(pm25_data)
+    exceed_pm25_data = extract_exceed_pm25_data(latest_pm25_data)
     send_pm25_flex_message(exceed_pm25_data)
 
 if __name__ == "__main__":
