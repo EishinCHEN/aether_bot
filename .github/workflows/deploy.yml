@@ -52,7 +52,7 @@ jobs:
           cp home.html output/index.html
           cp map.html output/map.html
           mkdir -p output/charts
-          cp charts/* output/charts/
+          cp -r charts/* output/charts/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
