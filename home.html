@@ -68,6 +68,7 @@
 
     .chart-container {
       padding: 1rem;
+      border-radius: 6px;
       background-color: #fff;
       border: 1px solid var(--border-color);
       display: flex;
@@ -111,10 +112,10 @@
   <header>空氣指標查詢</header>
   <main>
     <iframe src="./map.html" width="100%" height="400px" style="border:none;"></iframe>
-    <div class="chart-container hidden" id="chart">
-      <img id="lineChart" alt="觀測站PM2.5濃度折線圖">
-      <img id="lineChartDistrict" alt="行政區PM2.5濃度折線圖">
-      <img id="barChart" alt="行政區PM2.5平均指數長條圖">
+    <div class="chart-container" id="chart">
+      <img id="lineChart" alt="選擇觀測站顯示「PM2.5濃度折線圖」">
+      <img id="lineChartDistrict" alt="選擇觀測站顯示「行政區PM2.5濃度折線圖」">
+      <img id="barChart" alt="選擇觀測站顯示「行政區PM2.5平均指數長條圖」">
     </div>
   </main>
 
@@ -125,7 +126,7 @@
       const chartDiv = document.getElementById("chart");
 
       if (county && site) {
-        chartDiv.classList.remove("hidden");
+        //chartDiv.classList.remove("hidden");
         document.getElementById("lineChart").src = `./charts/site_line_charts/${site}_site_trend.png`;
         document.getElementById("lineChartDistrict").src = `./charts/county_line_charts/${county}_trend.png`;
         document.getElementById("barChart").src = `./charts/county_bar_charts/${county}_average_bar_chart.png`;
