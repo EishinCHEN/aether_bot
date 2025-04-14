@@ -144,7 +144,7 @@ def genarate_pm25_map(pm25_dataframe, lng_lat_dataframe):
     map.get_root().add_child(macro)
 
     # 儲存為 HTML
-    map.save("pm25_map.html")
+    map.save("map.html")
 
 # 標示pm2.5濃度顏色
 def get_pm25_map_color(pm25_value):
@@ -201,7 +201,7 @@ def generate_pm25_trend_by_county(df_data, county_name):
     plt.title(f"{county_name} 12小時內 PM2.5 濃度紀錄")
     plt.xlabel("月-日 時")
     plt.ylabel("PM2.5 (μg/m³)")
-    plt.legend(title='site', bbox_to_anchor=(1.05, 1), loc='upper left')
+    plt.legend(title='觀測站', bbox_to_anchor=(1.05, 1), loc='upper left')
     plt.grid(True)
     plt.tight_layout()
     plt.savefig(f"./charts/county_line_charts/{county_name}_trend.png")
