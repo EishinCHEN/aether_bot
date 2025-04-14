@@ -42,8 +42,8 @@ jobs:
 
       - name: Debug - check map.html timestamp
         run: |
-             ls -l pm25_map.html
-             head -n 10 pm25_map.html
+             ls -l map.html
+             head -n 10 map.html
            
 
       - name: Prepare HTML for GitHub Pages
