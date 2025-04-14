@@ -9,9 +9,12 @@ channel_access_token = os.getenv("LINE_CHANNEL_ACCESS_TOKEN")
 line_bot_api = LineBotApi(channel_access_token)
 
 def send_pm25_flex_message(exceed_pm25_dataframe):
-    site_list = exceed_pm25_dataframe["site"].tolist()
-    site_text = [{"type":"text", "text":site, "wrap":True} for site in site_list]
-    message = "超標地區：" + ", ".join(exceed_pm25_dataframe["site"].tolist())
+    exceed_site = exceed_pm25_dataframe["site"].tolist()
+    if len(exceed_site) > 0:
+        message = "超標地區：" + ", ".join(exceed_site)
+    else: 
+        message = "目前全台觀測站都沒有超標喔，是個適合透透風的日子呢＾＾"
+
     flex_message = FlexSendMessage(
         alt_text = "PM2.5觀測數據",
         contents={
