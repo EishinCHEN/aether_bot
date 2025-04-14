@@ -234,4 +234,4 @@ def set_chinese_font():
     elif platform.system() == 'Windows':  # Windows
         plt.rcParams['font.family'] = 'Microsoft JhengHei'
     else:  # Linux 或 Colab
-        plt.rcParams['font.family'] = 'Taipei Sans TC Beta'
+        plt.rcParams['font.family'] = 'Noto Sans CJK TC'
