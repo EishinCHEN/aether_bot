@@ -144,7 +144,7 @@ def genarate_pm25_map(pm25_dataframe, lng_lat_dataframe):
     map.get_root().add_child(macro)
 
     # 儲存為 HTML
-    map.save("pm25_map.html")
+    map.save("templates/map.html")
 
 # 標示pm2.5濃度顏色
 def get_pm25_map_color(pm25_value):
