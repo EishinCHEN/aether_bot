@@ -1,6 +1,7 @@
 import folium
 from branca.element import Template, MacroElement
 import matplotlib.pylab as plt
+from matplotlib import font_manager
 import seaborn as sns
 import platform
 from data_handler import merge_site_and_pm25
@@ -228,10 +229,13 @@ def generate_average_bar_chart_by_county(df_data, county_name):
 
 # 顯示中文字體
 def set_chinese_font():
+    # 找到已安裝的字型路徑
+    font_path = "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
+    font_prop = font_manager.FontProperties(fname=font_path)
     # 根據系統設定中文字型
     if platform.system() == 'Darwin':  # macOS
         plt.rcParams['font.family'] = 'Heiti TC'
     elif platform.system() == 'Windows':  # Windows
         plt.rcParams['font.family'] = 'Microsoft JhengHei'
     else:  # Linux 或 Colab
-        plt.rcParams['font.family'] = 'Noto Sans CJK'
+        plt.rcParams['font.family'] = font_prop.get_name()
