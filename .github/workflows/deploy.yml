@@ -35,6 +35,19 @@ jobs:
 
       - name: Debug - show installed packages
         run: pip list
+
+      - name: Show system font list
+        run: |
+          python -c """
+import matplotlib.font_manager as fm
+for path in fm.findSystemFonts(fontpaths=None, fontext='ttf'):
+    try:
+        font = fm.FontProperties(fname=path)
+        print(f'{font.get_name()} --> {path}')
+    except Exception as e:
+        print(f'⚠️ 無法辨識字型: {path}')
+"""
+
   
       - name: Run Script
         env: 
